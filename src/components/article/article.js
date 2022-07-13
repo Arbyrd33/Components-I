@@ -87,6 +87,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: `It's time.`, 
+    date: `July 13, 2022`,
+    firstParagraph: `I think I've finally got the hang of this stuff. I want to finish as soon as I can so I can go play Sky: COTL. It's a really cute game that you can play on mobile or on switch. The seasonal events are a little bit expensive, but you don't have to spend real world currency on them.`,
+    secondParagraph: `It's really fun to play with friends, and the world is full of real people making up the population of the kingdom of Sky. Give it a shot! Sometimes I think I might talk too much in class, and then there gets to be a little quiet spell, and I feel a little self conscious for NOT talking, haha.`,
+    thirdParagraph: `I think the trick is really to just be confident, because if you're not, nobody's going to see you.`
   }
 ];
 
@@ -122,9 +129,6 @@ function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParag
     article.classList.toggle("article-open");
     console.log('click');
   })
-  article.addEventListener("mouseleave", ()=>{
-    closeArticle();
-  })
 
 
   article.append(head, postedOn, p1, p2, p3, button);
@@ -136,9 +140,10 @@ function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParag
   
 }
 
+const articlesContainer = document.querySelector(".articles");
 data.forEach(article => {
   const articleElement = articleMaker(article);
-  document.body.append(articleElement);
+  articlesContainer.append(articleElement);
 });
 
 /*
