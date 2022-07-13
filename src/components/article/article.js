@@ -90,6 +90,57 @@ const data = [
   }
 ];
 
+
+function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParagraph }){
+  const article = document.createElement("div");
+  const head = document.createElement("h2");
+  const postedOn = document.createElement("p");
+  const p1 = document.createElement("p");
+  const p2 = document.createElement("p");
+  const p3 = document.createElement("p");
+  const button = document.createElement("span");
+
+  article.classList.add("article");
+  postedOn.classList.add("date");
+  p1.classList.add("paragraph");
+  p2.classList.add("paragraph");
+  p3.classList.add("paragraph");
+  button.classList.add("expandButton");
+  
+  head.textContent = title;
+  postedOn.textContent = date;
+  p1.textContent = firstParagraph;
+  p2.textContent = secondParagraph;
+  p3.textContent = thirdParagraph;
+  button.textContent = "+";
+
+  // function openArticle(){
+   
+  // }
+  button.addEventListener("click", ()=>{
+    // openArticle();
+    article.classList.toggle("article-open");
+    console.log('click');
+  })
+  article.addEventListener("mouseleave", ()=>{
+    closeArticle();
+  })
+
+
+  article.append(head, postedOn, p1, p2, p3, button);
+  console.log(article);
+
+  
+
+  return article;
+  
+}
+
+data.forEach(article => {
+  const articleElement = articleMaker(article);
+  document.body.append(articleElement);
+});
+
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
